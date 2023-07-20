@@ -20,8 +20,9 @@
                 <div class="item">
                     <img v-bind:src="slides[currentImageIndex].image" alt="Spiderman" />
                     <div class="text">
-                        <h3></h3>
+                        <h3>{{slides[currentImageIndex].title}}</h3>
                         <p>
+                          {{slides[currentImageIndex].text}}
                         </p>
                     </div>
                 </div>
