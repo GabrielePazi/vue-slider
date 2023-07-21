@@ -30,20 +30,11 @@
                 <div class="thumbs">
                     <div class="prev" @click="previousImage"></div>
                     <div class="next" @click="nextImage"></div>
-                    <div class="thumb active">
-                        <img src="img/01.webp" alt="Svezia" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.webp" alt="Avengers" />
+                    <!-- <div class="thumb" v-for="(thumb, i) in slides" v-bind:class="(currentImageIndex === i ? 'active' : '')"> -->
+                        <div class="thumb" 
+                        v-for="(thumb, i) in slides"
+                        v-bind:class="{'active': currentImageIndex == i}">
+                        <img v-bind:src="thumb.image" alt="thumb.title">
                     </div>
                 </div>
 
