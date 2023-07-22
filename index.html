@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider</title>
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 
@@ -18,11 +18,12 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img v-bind:src="slides[currentImageIndex].image" alt="Spiderman" />
+                    <img v-bind:src="slides[currentImageIndex].image" @mouseover="stopAutoplay()"
+                        @mouseout="resumeAutoPlay()" alt="Spiderman" />
                     <div class="text">
                         <h3>{{slides[currentImageIndex].title}}</h3>
                         <p>
-                          {{slides[currentImageIndex].text}}
+                            {{slides[currentImageIndex].text}}
                         </p>
                     </div>
                 </div>
@@ -31,9 +32,8 @@
                     <div class="prev" @click="previousImage"></div>
                     <div class="next" @click="nextImage"></div>
                     <!-- <div class="thumb" v-for="(thumb, i) in slides" v-bind:class="(currentImageIndex === i ? 'active' : '')"> -->
-                        <div class="thumb" 
-                        v-for="(thumb, i) in slides"
-                        v-bind:class="{'active': currentImageIndex == i}">
+                    <div class="thumb" v-for="(thumb, i) in slides" v-bind:class="{'active': currentImageIndex == i}"
+                        @click="enlargeThumb(i)">
                         <img v-bind:src="thumb.image" alt="thumb.title">
                     </div>
                 </div>
